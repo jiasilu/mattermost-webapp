@@ -27,7 +27,7 @@ import NeedsTeam from 'components/needs_team';
 import PermalinkRedirector from 'components/permalink_redirector';
 import {makeAsyncComponent} from 'components/async_load';
 const LazyErrorPage = React.lazy(() => import('components/error_page'));
-const LazyLoginController = React.lazy(() => import('components/login/login_controller'));
+const LazyCasLogin = React.lazy(() => import('components/cas_login/cas_login'));
 const LazyAdminConsole = React.lazy(() => import('components/admin_console'));
 const LazyLoggedIn = React.lazy(() => import('components/logged_in'));
 const LazyPasswordResetSendLink = React.lazy(() => import('components/password_reset_send_link'));
@@ -54,7 +54,7 @@ import A11yController from 'utils/a11y_controller';
 const CreateTeam = makeAsyncComponent(LazyCreateTeam);
 const ErrorPage = makeAsyncComponent(LazyErrorPage);
 const TermsOfService = makeAsyncComponent(LazyTermsOfService);
-const LoginController = makeAsyncComponent(LazyLoginController);
+const CasLogin = makeAsyncComponent(LazyCasLogin);
 const AdminConsole = makeAsyncComponent(LazyAdminConsole);
 const LoggedIn = makeAsyncComponent(LazyLoggedIn);
 const PasswordResetSendLink = makeAsyncComponent(LazyPasswordResetSendLink);
@@ -252,7 +252,6 @@ export default class Root extends React.Component {
         if (!this.state.configLoaded) {
             return <div/>;
         }
-
         return (
             <IntlProvider>
                 <Switch>
@@ -261,8 +260,8 @@ export default class Root extends React.Component {
                         component={ErrorPage}
                     />
                     <HFTRoute
-                        path={'/login'}
-                        component={LoginController}
+                        path={'/cas_login'}
+                        component={CasLogin}
                     />
                     <HFTRoute
                         path={'/reset_password'}
@@ -339,7 +338,7 @@ export default class Root extends React.Component {
                     <Redirect
                         to={{
                             ...this.props.location,
-                            pathname: '/login',
+                            pathname: '/cas_login',
                         }}
                     />
                 </Switch>
