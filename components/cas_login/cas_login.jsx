@@ -3,17 +3,13 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Client4} from 'mattermost-redux/client/index';
+import queryString from 'query-string';
+import axios from 'axios';
 
-const client_1 = require('mattermost-redux/client');
+const Client1 = require('mattermost-redux/client');
+const ServiceURL = window.location.protocol + '//' + window.location.hostname + '/cas_login';
 
-export default class CasLogin extends React.Component {
-    static get propTypes() {
-        return {
-            location: PropTypes.object.isRequired,
-        };
-    }
-
+class CasLogin extends React.Component {
     constructor(props) {
         super(props);
 
@@ -22,18 +18,44 @@ export default class CasLogin extends React.Component {
     }
 
     loginWithCasAuthentication = () => {
-        const CasLoginApi = client_1.Client4.getUsersRoute() + '/cas_login';
-        // const xhr = new XMLHttpRequest();
-        //
-        // xhr.addEventListener('load', () => {
-        //     console.log(xhr.responseText);
-        // });
-        // xhr.open('GET', CasLoginApi);
-        // xhr.send();
-        window.location.replace(CasLoginApi);
+        const CasLoginApi = Client1.Client4.getUsersRoute() + '/cas_login';
+        const {location} = this.props;
+        const params = queryString.parse(location.search);
+        const {ticket} = params;
+        if (ticket == null) {
+            this.redirectToCasServerToLogin();
+        } else {
+            axios.get(CasLoginApi, {
+                params: {
+                    service: ServiceURL,
+                    ticket,
+                }
+            }).
+                then((res) => {
+                    const {data: user} = res;
+                }).
+                catch((err) => {
+                    // TODO: Handle errors here
+                });
+        }
+    };
+
+    redirectToCasServerToLogin = () => {
+        const CasServerURL = 'https://www.youshengyun.com/sso';
+        const CasLoginURL = `${CasServerURL}/login`;
+        window.location.replace(`${CasLoginURL}?service=${ServiceURL}`);
     };
 
     render() {
         return null;
     }
 }
+
+CasLogin.propTypes = {
+    location: PropTypes.shape({
+        pathname: PropTypes.string,
+        search: PropTypes.string,
+    }).isRequired,
+};
+
+export default CasLogin;
