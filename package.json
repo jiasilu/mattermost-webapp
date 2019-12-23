@@ -26,6 +26,7 @@
     "highlight.js": "9.16.2",
     "hoist-non-react-statics": "3.3.0",
     "html-to-react": "1.4.2",
+    "http-status-codes": "^1.4.0",
     "inobounce": "0.2.0",
     "intl": "1.2.5",
     "jasny-bootstrap": "3.1.3",
