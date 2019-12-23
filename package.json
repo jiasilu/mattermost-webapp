@@ -21,9 +21,16 @@
     "flexsearch": "0.6.32",
     "flux": "3.1.3",
     "font-awesome": "4.7.0",
+<<<<<<< HEAD
     "highlight.js": "10.1.2",
     "hoist-non-react-statics": "3.3.2",
     "html-to-react": "1.4.3",
+=======
+    "highlight.js": "9.16.2",
+    "hoist-non-react-statics": "3.3.0",
+    "html-to-react": "1.4.2",
+    "http-status-codes": "^1.4.0",
+>>>>>>> 22901fdf0... use action directly
     "inobounce": "0.2.0",
     "jasny-bootstrap": "3.1.3",
     "jquery": "3.5.1",

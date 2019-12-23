@@ -29,7 +29,7 @@ import NeedsTeam from 'components/needs_team';
 import {makeAsyncComponent} from 'components/async_load';
 
 const LazyErrorPage = React.lazy(() => import('components/error_page'));
-const LazyCasLogin = React.lazy(() => import('components/cas_login/cas_login'));
+const LazyCasLogin = React.lazy(() => import('components/cas_login/index'));
 const LazyAdminConsole = React.lazy(() => import('components/admin_console'));
 const LazyLoggedIn = React.lazy(() => import('components/logged_in'));
 const LazyPasswordResetSendLink = React.lazy(() => import('components/password_reset_send_link'));
