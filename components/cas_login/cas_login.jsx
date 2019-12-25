@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import queryString from 'query-string';
 
-import {getHostURL, default as Utils} from '../../utils/utils';
+import * as Utils from 'utils/utils.jsx';
 import LocalStorageStore from '../../stores/local_storage_store';
 import {browserHistory} from '../../utils/browser_history';
 import * as GlobalActions from '../../actions/global_actions';
 
-const ServiceURL = getHostURL() + '/cas_login';
+const ServiceURL = Utils.getHostURL() + '/cas_login';
 
 class CasLogin extends React.Component {
     constructor(props) {
