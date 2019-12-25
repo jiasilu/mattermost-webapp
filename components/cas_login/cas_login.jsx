@@ -4,12 +4,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import queryString from 'query-string';
-import * as HttpStatus from 'http-status-codes';
-
-import {FormattedMessage} from 'react-intl';
 
 import {getHostURL, default as Utils} from '../../utils/utils';
-import {casLogIn} from '../../api/users';
 import LocalStorageStore from '../../stores/local_storage_store';
 import {browserHistory} from '../../utils/browser_history';
 import * as GlobalActions from '../../actions/global_actions';
@@ -20,8 +16,16 @@ class CasLogin extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
-        this.loginWithCasAuthentication();
+        this.state = {requested: false};
+    }
+
+    componentDidMount() {
+        const {currentUser} = this.props;
+        if (currentUser == null) {
+            this.loginWithCasAuthentication();
+        } else {
+            this.finishSignin();
+        }
     }
 
     loginWithCasAuthentication = () => {
