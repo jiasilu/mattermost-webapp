@@ -164,7 +164,7 @@ export default class PopoverListMembers extends React.PureComponent {
             <Tooltip id='channelMembersTooltip'>
                 <FormattedMessage
                     id='channel_header.channelMembers'
-                    defaultMessage='Members'
+                    defaultMessage='成员'
                 />
             </Tooltip>
         );
