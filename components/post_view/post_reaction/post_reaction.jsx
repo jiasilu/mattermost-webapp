@@ -90,7 +90,7 @@ export default class PostReaction extends React.PureComponent {
                             >
                                 <FormattedMessage
                                     id='post_info.tooltip.add_reactions'
-                                    defaultMessage='Add Reaction'
+                                    defaultMessage='添加互动'
                                 />
                             </Tooltip>
                         }
