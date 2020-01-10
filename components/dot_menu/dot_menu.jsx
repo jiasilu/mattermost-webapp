@@ -193,7 +193,7 @@ export default class DotMenu extends Component {
         >
             <FormattedMessage
                 id='post_info.dot_menu.tooltip.more_actions'
-                defaultMessage='More Actions'
+                defaultMessage='更多操作'
             />
         </Tooltip>
     )

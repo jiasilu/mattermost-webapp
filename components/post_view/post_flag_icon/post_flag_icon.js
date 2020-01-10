@@ -114,7 +114,7 @@ export default class PostFlagIcon extends React.PureComponent {
                         <Tooltip id='flagTooltip'>
                             <FormattedMessage
                                 id={isFlagged ? t('flag_post.unflag') : t('flag_post.flag')}
-                                defaultMessage={isFlagged ? 'Unflag' : 'Flag for follow up'}
+                                defaultMessage={isFlagged ? '取消标记' : '标记以跟进'}
                             />
                         </Tooltip>
                     }
