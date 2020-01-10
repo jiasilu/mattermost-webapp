@@ -24,25 +24,25 @@ export default function HeaderIconWrapper({
             class: 'text-nowrap',
             id: 'flaggedTooltip',
             messageID: t('channel_header.flagged'),
-            message: 'Flagged Posts',
+            message: t('channel_header.flagged'),
         },
         pinnedPosts: {
             class: '',
             id: 'pinnedPostTooltip',
             messageID: t('channel_header.pinnedPosts'),
-            message: 'Pinned Posts',
+            message: t('channel_header.pinnedPosts'),
         },
         recentMentions: {
             class: '',
             id: 'recentMentionsTooltip',
             messageID: t('channel_header.recentMentions'),
-            message: 'Recent Mentions',
+            message: t('channel_header.recentMentions'),
         },
         search: {
             class: '',
             id: 'searchTooltip',
             messageID: t('channel_header.search'),
-            message: 'Search',
+            message: t('channel_header.search'),
         },
     };
 
