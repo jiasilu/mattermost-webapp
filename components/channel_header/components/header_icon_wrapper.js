@@ -27,25 +27,37 @@ export default function HeaderIconWrapper({
             class: 'text-nowrap',
             id: 'flaggedTooltip',
             messageID: t('channel_header.flagged'),
+<<<<<<< HEAD
             message: 'Saved posts',
+=======
+            message: t('channel_header.flagged'),
+>>>>>>> de2c40395... Updaet header icon
         },
         pinnedPosts: {
             class: '',
             id: 'pinnedPostTooltip',
             messageID: t('channel_header.pinnedPosts'),
+<<<<<<< HEAD
             message: 'Pinned posts',
+=======
+            message: t('channel_header.pinnedPosts'),
+>>>>>>> de2c40395... Updaet header icon
         },
         recentMentions: {
             class: '',
             id: 'recentMentionsTooltip',
             messageID: t('channel_header.recentMentions'),
+<<<<<<< HEAD
             message: 'Recent mentions',
+=======
+            message: t('channel_header.recentMentions'),
+>>>>>>> de2c40395... Updaet header icon
         },
         search: {
             class: '',
             id: 'searchTooltip',
             messageID: t('channel_header.search'),
-            message: 'Search',
+            message: t('channel_header.search'),
         },
     };
 
