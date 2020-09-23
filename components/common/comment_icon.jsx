@@ -49,7 +49,7 @@ export default class CommentIcon extends React.PureComponent {
             >
                 <FormattedMessage
                     id='post_info.comment_icon.tooltip.reply'
-                    defaultMessage='Reply'
+                    defaultMessage='回复'
                 />
             </Tooltip>
         );

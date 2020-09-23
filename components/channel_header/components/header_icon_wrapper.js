@@ -24,25 +24,25 @@ export default function HeaderIconWrapper({
             class: 'text-nowrap',
             id: 'flaggedTooltip',
             messageID: t('channel_header.flagged'),
-            message: 'Flagged Posts',
+            message: '已标记信息',
         },
         pinnedPosts: {
             class: '',
             id: 'pinnedPostTooltip',
             messageID: t('channel_header.pinnedPosts'),
-            message: 'Pinned Posts',
+            message: '置顶消息',
         },
         recentMentions: {
             class: '',
             id: 'recentMentionsTooltip',
             messageID: t('channel_header.recentMentions'),
-            message: 'Recent Mentions',
+            message: '最近提及',
         },
         search: {
             class: '',
             id: 'searchTooltip',
             messageID: t('channel_header.search'),
-            message: 'Search',
+            message: '搜索',
         },
     };
 

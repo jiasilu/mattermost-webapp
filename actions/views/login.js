@@ -9,6 +9,18 @@ export function login(loginId, password, mfaToken) {
     };
 }
 
+export function casLogIn(queryString) {
+    return (dispatch) => {
+        return ignoreMfaRequiredError(dispatch(UserActions.casLogIn(queryString)));
+    };
+}
+
+export function completeLogin(data) {
+    return (dispatch) => {
+        return ignoreMfaRequiredError(dispatch(UserActions.completeLogin(data)));
+    };
+}
+
 export function loginById(userId, password, mfaToken) {
     return (dispatch) => {
         return ignoreMfaRequiredError(dispatch(UserActions.loginById(userId, password, mfaToken)));

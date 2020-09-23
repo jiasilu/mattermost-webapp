@@ -26,7 +26,7 @@ export default class SidebarHeaderDropdownButton extends React.PureComponent {
             <Tooltip id='main-menu__tooltip'>
                 <FormattedMessage
                     id='sidebar.mainMenu'
-                    defaultMessage='Main menu'
+                    defaultMessage='主菜单'
                 />
             </Tooltip>
         );
