@@ -2,13 +2,12 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {injectIntl, IntlShape} from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import LoadingWrapper from 'components/widgets/loading/loading_wrapper';
 
 type Props = {
-    intl: IntlShape;
-    saving?: boolean;
+    saving: boolean;
     disabled?: boolean;
     id?: string;
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -17,15 +16,27 @@ type Props = {
     btnClass?: string;
     extraClasses?: string;
 }
-class SaveButton extends React.PureComponent<Props> {
+
+export default class SaveButton extends React.PureComponent<Props> {
     public static defaultProps: Partial<Props> = {
-        disabled: false,
         btnClass: 'btn-primary',
+        defaultMessage: (
+            <FormattedMessage
+                id='save_button.save'
+                defaultMessage='Save'
+            />
+        ),
+        disabled: false,
         extraClasses: '',
+        savingMessage: (
+            <FormattedMessage
+                id='save_button.saving'
+                defaultMessage='Saving'
+            />
+        ),
     }
 
     public render() {
-        const {formatMessage} = this.props.intl;
         const {
             saving,
             disabled,
@@ -45,12 +56,10 @@ class SaveButton extends React.PureComponent<Props> {
             className += ' ' + extraClasses;
         }
 
-        const savingMessageComponent = savingMessage || formatMessage({id: 'save_button.saving', defaultMessage: 'Saving'});
-        const defaultMessageComponent = defaultMessage || formatMessage({id: 'save_button.save', defaultMessage: 'Save'});
-
         return (
             <button
                 type='submit'
+                data-testid='saveSetting'
                 id='saveSetting'
                 className={className}
                 disabled={disabled}
@@ -58,13 +67,11 @@ class SaveButton extends React.PureComponent<Props> {
             >
                 <LoadingWrapper
                     loading={saving}
-                    text={savingMessageComponent}
+                    text={savingMessage}
                 >
-                    <span>{defaultMessageComponent}</span>
+                    <span>{defaultMessage}</span>
                 </LoadingWrapper>
             </button>
         );
     }
 }
-
-export default injectIntl(SaveButton);

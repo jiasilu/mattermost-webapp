@@ -1,9 +1,10 @@
-.PHONY: build test run clean stop check-style run-unit emojis help package-ci storybook build-storybook
+.PHONY: build test run clean stop check-style fix-style run-unit emojis help package-ci storybook build-storybook update-dependencies
 
 BUILD_SERVER_DIR = ../mattermost-server
 BUILD_WEBAPP_DIR = ../mattermost-webapp
 MM_UTILITIES_DIR = ../mattermost-utilities
 EMOJI_TOOLS_DIR = ./build/emoji
+export NODE_OPTIONS=--max-old-space-size=4096
 
 build-storybook: node_modules ## Build the storybook
 	@echo Building storybook
@@ -17,6 +18,11 @@ check-style: node_modules ## Checks JS file for ESLint confirmity
 	@echo Checking for style guide compliance
 
 	npm run check
+
+fix-style: node_modules ## Fix JS file ESLint issues
+	@echo Fixing lint issues to follow style guide
+
+	npm run fix
 
 check-types: node_modules ## Checks TS file for TypeScript confirmity
 	@echo Checking for TypeScript compliance
@@ -35,6 +41,7 @@ node_modules: package.json package-lock.json
 	@echo Getting dependencies using npm
 
 	npm install
+	touch $@
 
 package: build ## Packages app
 	@echo Packaging webapp
@@ -153,3 +160,9 @@ emojis: ## Creates emoji JSON, JSX and Go files and extracts emoji images from t
 ## Help documentatin à la https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 help:
 	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
+update-dependencies: # Updates the dependencies
+	npm update --depth 9999
+	npm audit fix
+	@echo Automatic dependency update complete.
+	@echo You should manually inspect changes to package.json and pin exact versions of packages where appropriate.

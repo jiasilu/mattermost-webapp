@@ -18,8 +18,42 @@ describe('components/widgets/admin_console/AdminPanel', () => {
     };
 
     test('should match snapshot', () => {
-        const wrapper = shallow(<AdminPanel {...defaultProps}>{'Test'}</AdminPanel>);
-        expect(wrapper).toMatchSnapshot();
+        const wrapper = shallow(
+            <AdminPanel {...defaultProps}>{'Test'}</AdminPanel>,
+        );
+        expect(wrapper).toMatchInlineSnapshot(`
+      <div
+        className="AdminPanel clearfix test-class-name"
+        id="test-id"
+      >
+        <div
+          className="header"
+        >
+          <div>
+            <h3>
+              <FormattedMessage
+                defaultMessage="test-title-default"
+                id="test-title-id"
+              />
+            </h3>
+            <div
+              className="mt-2"
+            >
+              <injectIntl(FormattedMarkdownMessage)
+                defaultMessage="test-subtitle-default"
+                id="test-subtitle-id"
+                values={
+                  Object {
+                    "foo": "bar",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+        Test
+      </div>
+    `);
     });
 
     test('should match snapshot with button', () => {
@@ -29,8 +63,48 @@ describe('components/widgets/admin_console/AdminPanel', () => {
                 button={<span>{'TestButton'}</span>}
             >
                 {'Test'}
-            </AdminPanel>);
-        expect(wrapper).toMatchSnapshot();
+            </AdminPanel>,
+        );
+        expect(wrapper).toMatchInlineSnapshot(`
+      <div
+        className="AdminPanel clearfix test-class-name"
+        id="test-id"
+      >
+        <div
+          className="header"
+        >
+          <div>
+            <h3>
+              <FormattedMessage
+                defaultMessage="test-title-default"
+                id="test-title-id"
+              />
+            </h3>
+            <div
+              className="mt-2"
+            >
+              <injectIntl(FormattedMarkdownMessage)
+                defaultMessage="test-subtitle-default"
+                id="test-subtitle-id"
+                values={
+                  Object {
+                    "foo": "bar",
+                  }
+                }
+              />
+            </div>
+          </div>
+          <div
+            className="button"
+          >
+            <span>
+              TestButton
+            </span>
+          </div>
+        </div>
+        Test
+      </div>
+    `);
     });
 
     test('should match snapshot with onHeaderClick', () => {
@@ -40,7 +114,41 @@ describe('components/widgets/admin_console/AdminPanel', () => {
                 onHeaderClick={jest.fn()}
             >
                 {'Test'}
-            </AdminPanel>);
-        expect(wrapper).toMatchSnapshot();
+            </AdminPanel>,
+        );
+        expect(wrapper).toMatchInlineSnapshot(`
+      <div
+        className="AdminPanel clearfix test-class-name"
+        id="test-id"
+      >
+        <div
+          className="header"
+          onClick={[MockFunction]}
+        >
+          <div>
+            <h3>
+              <FormattedMessage
+                defaultMessage="test-title-default"
+                id="test-title-id"
+              />
+            </h3>
+            <div
+              className="mt-2"
+            >
+              <injectIntl(FormattedMarkdownMessage)
+                defaultMessage="test-subtitle-default"
+                id="test-subtitle-id"
+                values={
+                  Object {
+                    "foo": "bar",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+        Test
+      </div>
+    `);
     });
 });
