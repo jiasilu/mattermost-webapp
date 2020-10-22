@@ -111,7 +111,7 @@ export default class PostFlagIcon extends React.PureComponent {
                 }
             >
                 <OverlayTrigger
-                    key={'flagtooltipkey' + flagVisible}
+                    key={`flagtooltipkey${isFlagged ? 'flagged' : ''}`}
                     delayShow={Constants.OVERLAY_TIME_DELAY}
                     placement='top'
                     overlay={
@@ -124,7 +124,7 @@ export default class PostFlagIcon extends React.PureComponent {
                     }
                 >
                     {flagIcon}
-                </button>
+                </OverlayTrigger>
             </OverlayTrigger>
         );
     }
