@@ -219,7 +219,7 @@ export default class DotMenu extends React.PureComponent {
         >
             <FormattedMessage
                 id='post_info.dot_menu.tooltip.more_actions'
-                defaultMessage='More actions'
+                defaultMessage='更多操作'
             />
         </Tooltip>
     )
