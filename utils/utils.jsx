@@ -1760,6 +1760,10 @@ export function enableDevModeFeatures() {
     });
 }
 
+export function getHostURL() {
+    return window.location.protocol + '//' + window.location.hostname + ":" + window.location.port;
+}
+
 /**
  * Get closest parent which match selector
  */
