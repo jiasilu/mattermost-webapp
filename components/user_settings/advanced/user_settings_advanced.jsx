@@ -24,7 +24,7 @@ export default class AdvancedSettingsDisplay extends React.PureComponent {
         currentUser: PropTypes.object.isRequired,
         advancedSettingsCategory: PropTypes.array.isRequired,
         sendOnCtrlEnter: PropTypes.string.isRequired,
-        codeBlockOnCtrlEnter: PropTypes.bool,
+        codeBlockOnCtrlEnter: PropTypes.any,
         formatting: PropTypes.string.isRequired,
         joinLeave: PropTypes.string.isRequired,
         updateSection: PropTypes.func,
@@ -50,7 +50,7 @@ export default class AdvancedSettingsDisplay extends React.PureComponent {
         const advancedSettings = this.props.advancedSettingsCategory;
         const settings = {
             send_on_ctrl_enter: this.props.sendOnCtrlEnter,
-            code_block_ctrl_enter: this.props.codeBlockOnCtrlEnter,
+            code_block_ctrl_enter: this.props.codeBlockOnCtrlEnter === true || this.props.codeBlockOnCtrlEnter === 'true' ? true : false,
             formatting: this.props.formatting,
             join_leave: this.props.joinLeave,
         };

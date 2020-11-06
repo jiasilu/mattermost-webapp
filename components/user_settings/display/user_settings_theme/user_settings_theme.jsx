@@ -30,7 +30,7 @@ export default class ThemeSetting extends React.PureComponent {
         setRequireConfirm: PropTypes.func.isRequired,
         setEnforceFocus: PropTypes.func.isRequired,
         allowCustomThemes: PropTypes.bool,
-        focused: PropTypes.bool.isRequired,
+        focused: PropTypes.bool,
     };
 
     constructor(props) {
@@ -321,7 +321,7 @@ export default class ThemeSetting extends React.PureComponent {
                     }
                     section={'theme'}
                     updateSection={this.handleUpdateSection}
-                    focused={this.props.focused}
+                    focused={this.props.focused || false }
                 />
             );
         }

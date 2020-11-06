@@ -31,6 +31,9 @@ function mapStateToProps(state: GlobalState) {
         mfaActive = (user as any).mfa_active;
         mfaAvailable = mfaEnabled && (user.auth_service === '' || user.auth_service === Constants.LDAP_SERVICE);
     }
+    if (mfaActive === undefined) {
+        mfaActive = false;
+    }
     return {
         mfaActive,
         mfaAvailable,
